@@ -1,0 +1,30 @@
+Conferir Verificações
+
+- Verificação 7 (conferido, mas não satisfeito)
+- Verificação 11
+
+
+***********************************
+Relatorio de dimensionamento:
+
+- Verificação 9 (Não encontrado na NBR8800, ou no manual)
+- Verificação 11
+- Verificação 12
+
+***********************************
+- 2 verificações faltando
+
+
+***********************************
+Formatação de Codigo
+- Restrições de construção das classes
+- Metodos 
+- Contorno de Exceções
+- Metodo de encontrar Raizes
+
+
+***********************************
+Aprimoramentos
+- desenho e detalhamento
+- Analise de cargas pontuais (viga principal)
+- opção de analise de vigas bi-apoiadas (retirar a vinculação)
