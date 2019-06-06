@@ -790,7 +790,9 @@ class RetornoBox:
                                                title='Please select a directory',
                                                filetypes = (("Arquivos doc","*.doc"),("Toudos","*.*")))
 
-        tempdir += '.doc'
+        if (tempdir[-4:-1]+tempdir[-1]) != '.doc':
+            tempdir += '.doc'
+            
         if len(tempdir) > 0:
             print("You chose %s" % tempdir)
 
