@@ -157,7 +157,8 @@ class Interface:
 
         #mostrar_verification_box
         ## Container com quantidade de vaos
-        self.label_n_vaos = Label(self.container_nvaos, text='Número de Vãos', height=1).pack()  # .grid(row=0, column=1)
+        self.label_n_vaos = Label(self.container_nvaos, text='Número de Vãos', height=1)
+        self.label_n_vaos.pack()  # .grid(row=0, column=1)
 
         self.variable = IntVar(master)
         self.variable.set(5)

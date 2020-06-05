@@ -428,9 +428,9 @@ def inercia_equivalente_curta(tramo, le):
     
     fck = tramo.fck
     fy = tramo.fy
-    fys = tramo.fys
+    # fys = tramo.fys
 
-    ha = tramo.ha
+    # ha = tramo.ha
         
     d = tramo.d
     bfs = tramo.bfs
@@ -462,7 +462,8 @@ def inercia_equivalente_curta(tramo, le):
 
     ycg_laje = 7.5 + (hdeck - 75) * .05 # altura do centro geometrico da laje
     tc = (hdeck - 75) / 10 #6.5 # altura concreto laje steeldeck
-    ds = y_laje = d * .5 + ycg_laje
+    ds = d * .5 + ycg_laje
+    # y_laje = ds
     Ec = 4760 * ((10 * fck) ** 0.5) / 10. # kN/cm2
     RzE = E / (Ec)
 
@@ -596,35 +597,6 @@ def inercia_equivalente_curta(tramo, le):
 
     db_relatorio.insert_data(db_rel, 'Equivalente Curta', "{}".format(tramo.n), relatorio)
 
-##    print('\nCURTA DURAÇÂO')
-##    print('largura_efetiva_pos' , largura_efetiva_pos)
-##    print('le' , le)
-##    print('largura_transformada' , largura_transformada)
-##    print('area_transformada' , area_transformada)
-##    print('aa' ,aa)
-##    print('areatotal_pos' ,areatotal_pos)
-##    print('ay_pos' ,ay_pos)    
-##    print('ay2_pos' ,ay2_pos)    
-##    
-##    print('yg' ,yg)
-##    print('inercia_total_pos' ,inercia_total_pos)
-##    
-##    # ni = max(1 - (E / (578*fy))*(0.75 - 0.03 * le), .4)
-##    #inercia_laje_transformada = largura_transformada * tc ** 3 / 12.
-##    print('tc' ,tc)
-##    print('inercia_laje_transformada' ,inercia_laje_transformada)
-##    print('areatotal_pos * yg ** 2' ,areatotal_pos * yg ** 2)
-##    print('ia' ,ia)
-##    print('itr' ,itr)
-##    print('nn' ,nn)
-##    print('cd' ,cd)
-##    print('fhrd' ,fhrd)
-##    print('ief_pos_curta' ,ief_pos_curta)
-##    print('wa' ,wa)
-##    print('wtr' ,wtr)
-##    print('wef' ,wef)
-    
-##    print('\n')
     ## Pagina 33
     tramo.nn = nn
 
@@ -633,8 +605,6 @@ def inercia_equivalente_curta(tramo, le):
     tramo.wefCurta1 = tramo.wefCurta2 = wef * (100 ** -3)
     tramo.wefCurta =  wef * (100 ** -3)
     
-##    return ief_pos_curta, mrd_pos, wef
-
 
 #def inercia_equivalente_longa(vao, largura_efetiva_pos, le, hdeck, d, tw, bfs,bfi, tfs,tfi, Asl, ia, aa, fck, fy, E):
 def inercia_equivalente_longa(tramo, le):
@@ -648,16 +618,16 @@ def inercia_equivalente_longa(tramo, le):
     
     fck = tramo.fck
     fy = tramo.fy
-    fys = tramo.fys
+    # fys = tramo.fys
 
-    ha = tramo.ha
+    # ha = tramo.ha
         
     d = tramo.d
     bfs = tramo.bfs
     bfi = tramo.bfi
     tfs = tramo.tfs
     tfi = tramo.tfi
-    tw = tramo.tw
+    # tw = tramo.tw
     
     area_perfil = aa = tramo.aa
     ia = tramo.ia  ## round(prop.i_x(d, tw, bfs, tfs, bfi, tfi), 2)    
@@ -756,36 +726,6 @@ def inercia_equivalente_longa(tramo, le):
     relatorio += "wef = wa + (wtr - wa) * ((nn) ^ .5) = {}\n".format(round(wef,2))
 
     db_relatorio.insert_data(db_rel, 'Equivalente Longa', "{}".format(tramo.n), relatorio)
-##
-##    print('\nLonga Duração')
-##    print('largura_efetiva_pos' , largura_efetiva_pos)
-##    print('le' , le)
-####    print('largura_transformada' , largura_transformada)
-####    print('area_transformada' , area_transformada)
-####    print('aa' ,aa)
-##    
-##    print('ay_pos' ,ay_pos)
-##    print('areatotal_pos' ,areatotal_pos)
-##    
-##    print('yg' ,yg)
-##    
-##    print('ay2_pos' ,ay2_pos)    
-##    print('inercia_total_pos' ,inercia_total_pos)
-##    
-##    print('areatotal_pos * yg ** 2' ,areatotal_pos * yg ** 2)
-##    print('itr' ,itr)
-##    # ni = max(1 - (E / (578*fy))*(0.75 - 0.03 * le), .4)
-##    #inercia_laje_transformada = largura_transformada * tc ** 3 / 12.
-####    print('tc' ,tc)
-##    print('inercia_laje_transformada' ,inercia_laje_transformada)    
-##    print('ia' ,ia)    
-##    print('nn' ,nn)
-##    print('ief_pos_longa' ,ief_pos_longa)
-##    print('wa' ,wa)
-##    print('wtr' ,wtr)
-##    print('wef' ,wef)
-##
-##    print('\n')
     ## Pagina 33
     
     tramo.iefPosLonga = ief_pos_longa * (100**-4)
@@ -804,12 +744,7 @@ def verificar_tramos(lista_tramos, lista_dx_vaos, lista_cargas,
                      lista_MLonga_pos, lista_MLonga_neg,
                      lista_Cortantes, lista_Momentos_Zero,
                      nb, save):
-##    print(lista_MD_pos)
-##    print(lista_MCurta_pos)
-##    print(lista_MLonga_pos)
-##    print(lista_MD_neg)
-##    print(lista_Cortantes)
-##    print(lista_Momentos_Zero)
+
     retorno = []
     relatorio = ""
     
@@ -834,13 +769,13 @@ def verificar_tramos(lista_tramos, lista_dx_vaos, lista_cargas,
         fys = tramo.fys
         fck = tramo.fck
         e = tramo.e
-        ylnp = tramo.ylnp           # Linha neutra do platisca da ligacao
+        # ylnp = tramo.ylnp           # Linha neutra do platisca da ligacao
         x1 = tramo.ylnpx1           # Linha neutra do perfil/secao
 
         v_poisson = 0.3
         b_inf = tramo.b_inf
 
-        n_conectores = tramo.n_conectores
+        # n_conectores = tramo.n_conectores
         
         tds = Asl * fys / 1.15
         hf = 7.5
@@ -915,7 +850,7 @@ def verificar_tramos(lista_tramos, lista_dx_vaos, lista_cargas,
         msd_q = 0
         for text, carr in lista_cargas:
             if text == 'd':
-                q_d = carr  # carregamento antes da cura, para analise de flecha
+                # q_d = carr  # carregamento antes da cura, para analise de flecha
                 re_d = carr * vao / 2
                 msd_q = +re_d * x_md - carr*x_md**2/2
 
@@ -975,10 +910,10 @@ def verificar_tramos(lista_tramos, lista_dx_vaos, lista_cargas,
             if x == xf:
                 msd_mcurta_negf = momento
                 
-        md = msd_md_pos
+        # md = msd_md_pos
         mlCurta = float(msd_mcurta_pos)*1.
         mlLonga = float(msd_mlonga_pos)*1.
-        mlPos  = abs(mlLonga) * 1. + abs(mlCurta) * 1.
+        # mlPos  = abs(mlLonga) * 1. + abs(mlCurta) * 1.
 
         mlNeg = max(abs(msd_mcurta_negi), abs(msd_mcurta_negf))*1.6 + max(abs(msd_mlonga_negi),abs(msd_mlonga_negf))*1.2  # min(ypm)
         mrdNeg = max(mrdNegi, mrdNegf)
@@ -1003,10 +938,10 @@ def verificar_tramos(lista_tramos, lista_dx_vaos, lista_cargas,
         bi = bfs - tw
         yi =(bfi*d**2/2-h*bi*(h/2+tfi))/aa
         ys = d-yi
-        hi = d - tfs/2 - tfi/2
+        # hi = d - tfs/2 - tfi/2
         hc = 2 * (ys - tfs)
 
-        verificacao_h_hc = ''
+        # verificacao_h_hc = ''
         if h/hc>=.75  and h/hc>=1.5:
             verificacao_h_hc = 'OK'
         else:
@@ -1049,7 +984,7 @@ def verificar_tramos(lista_tramos, lista_dx_vaos, lista_cargas,
         lra = 664 / (fy)**.5 *(1 + 2.83 *h/hc)
 
         mra = fy * wxs
-        mna = 0
+        # mna = 0
         if ea <= lpa:
             mna = mpm
         elif ea <= lra:
@@ -1115,11 +1050,6 @@ def verificar_tramos(lista_tramos, lista_dx_vaos, lista_cargas,
         ## Atribuindo valores de esbeltez
         tramo.v2alma = lambda_alma_perfil
         tramo.v2mesa = lambda_mesa_perfil
-        
-##        datab.update_v2almaa(data_b, tramo.n, str(lambda_alma_perfil))
-##        datab.update_v2almab(data_b, tramo.n, str(lambda_mesa_limite))
-##        datab.update_v2mesaa(data_b, tramo.n, str(lambda_mesa_perfil))
-##        datab.update_v2mesab(data_b, tramo.n, str(lambda_alma_limite))
 
         ###########################################################
         # 3 Verificação - Verificação a Momento Positivo Reduzido    

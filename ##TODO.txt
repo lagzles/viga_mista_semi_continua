@@ -1,0 +1,22 @@
+Verificar:
+***********************************
+Fazer/Transcrever:
+***********************************
+Formatação de Codigo
+- Restrições de construção das classes
+- Metodos 
+- Contorno de Exceções
+- Metodo de encontrar Raizes
+
+
+***********************************
+Aprimoramentos
+- desenho e detalhamento
+- Analise de cargas pontuais (viga principal)
+- opção de analise de vigas bi-apoiadas (retirar a vinculação)
+
+
+
+
+
+pyinstaller -F -w c:\users\ma3339\documents\#develop\#viga_mista\python\VM_GUI_003.pyw

@@ -151,6 +151,7 @@ class Tramos(object):
                 
         aa = prop.area(d, tw, bfs, tfs, bfi, tfi)
         ia = prop.i_x(d, tw, bfs, tfs, bfi, tfi)
+        print('ia',  ia)
 
         # Inercia efetiva na regiao negativa
         ds = self.d * .5 + (7.5 + (hdeck - 75) * .05)
